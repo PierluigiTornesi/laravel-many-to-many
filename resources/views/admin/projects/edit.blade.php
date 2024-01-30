@@ -33,6 +33,17 @@
                 </select>
             </div>
 
+            <div class="mb-3">
+                <ul class="list-group w-25 ">
+                    @foreach ($technologies as $technology)
+                    <li class="list-group-item">
+                        <label for="(technology-{{$technology->id}})"> {{$technology->name}}</label>
+                        <input @checked($project->technologies->contains($technology)) type="checkbox" name="technologies[]" id="technology-{{$technology->id}}" value="{{$technology->id}}">
+                    </li>
+                    @endforeach
+                </ul>
+            </div>
+
 
             <div class="mb-3">
                 <label for="description" class="form-label">Description</label>
