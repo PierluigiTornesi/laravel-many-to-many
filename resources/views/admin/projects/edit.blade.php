@@ -34,14 +34,16 @@
             </div>
 
             <div class="mb-3">
-                <ul class="list-group w-25 ">
+                <strong>Edit the technologies used : </strong>
                     @foreach ($technologies as $technology)
-                    <li class="list-group-item">
-                        <label for="(technology-{{$technology->id}})"> {{$technology->name}}</label>
-                        <input @checked($project->technologies->contains($technology)) type="checkbox" name="technologies[]" id="technology-{{$technology->id}}" value="{{$technology->id}}">
-                    </li>
+                        <div class="form-check">
+                            <label for="(technology-{{$technology->id}})"> {{$technology->name}}</label>
+                            <input @checked($project->technologies->contains($technology)) type="checkbox" name="technologies[]" id="technology-{{$technology->id}}" value="{{$technology->id}}">
+                        </div>
                     @endforeach
-                </ul>
+                @error('technologies')
+                    <div class="text-danger">{{$message}}</div>
+                @enderror
             </div>
 
 
