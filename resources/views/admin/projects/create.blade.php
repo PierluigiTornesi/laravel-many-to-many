@@ -35,6 +35,18 @@
                 @enderror
             </div>
 
+            {{-- technologies input --}}
+            <div class="mb-3 has-validation">
+                <ul class="list-group w-25 ">
+                    @foreach ($technologies as $technology)
+                    <li class="list-group-item">
+                        <label for="(technology-{{$technology->id}})"> {{$technology->name}}</label>
+                        <input type="checkbox" name="technologies[]" id="technology-{{$technology->id}}" value="{{$technology->id}}">
+                    </li>
+                    @endforeach
+                </ul>
+            </div>
+
             {{-- description input --}}
             <div class="mb-3 has-validation">
                 <label for="description" class="form-label">Description</label>

@@ -23,7 +23,7 @@
 
         <div class="mt-4 w-50">
             <p>
-                <strong>Description : </strong>{{ $project->description}}
+                <strong>Description : </strong>{{ $project->description ?? 'Not available ' }}
             </p>
         </div>
 
